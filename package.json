@@ -1,0 +1,19 @@
+{
+  "name": "coehercer",
+  "version": "0.1.0",
+  "description": "Coeherce and validate your data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabrizio Ruggeri",
+  "license": "MIT",
+  "dependencies": {
+    "crocks": "^0.9.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  }
+}
