@@ -1,8 +1,8 @@
 {
-  "name": "coehercer",
+  "name": "coerce",
   "version": "0.1.0",
   "description": "Coeherce and validate your data",
-  "main": "src/coehercer.js",
+  "main": "src/coercer.js",
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint"
