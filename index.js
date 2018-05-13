@@ -1,5 +1,5 @@
-const coercer = require('./src/coercer');
-const { moreThan, multipleOf } = require('./src/validators/numbers');
+const coercer = require('./coercer');
+const { moreThan, multipleOf } = require('./validators/numbers');
 
 
 const defaultErrorBuilder = value => new Error(`Value ${value} (${typeof value}) is not in the correct format`);

@@ -35,6 +35,7 @@ module.exports = errorBuilder => (value) => {
     toNumber: () => defaultReturnCreator(safeNumber(value * 1)),
     toNumberStrict: () => defaultReturnCreator(safeNumber(value)),
     toInt: (base = 10) => defaultReturnCreator(safeInt(parseInt(value, base))),
+    toFloat: (base = 10) => defaultReturnCreator(safeNumber(parseFloat(value, base))),
     toString: () => defaultReturnCreator(safeString(`${value}`)),
     toStringStrict: () => defaultReturnCreator(safeString(value)),
     toBool: (trueValues = ['true', '1'], falseValues = ['false', '0', 'undefined', 'null']) => {
