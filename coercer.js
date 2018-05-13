@@ -1,5 +1,6 @@
 const Maybe = require('crocks/Maybe');
 const safe = require('crocks/Maybe/safe');
+const curry = require('crocks/helpers/curry');
 const isNumber = require('crocks/predicates/isNumber');
 const isString = require('crocks/predicates/isString');
 const isBool = require('crocks/predicates/isBoolean');
@@ -11,7 +12,7 @@ const safeBool = safe(isBool);
 const safeInt = safe(isInt);
 
 
-module.exports = errorBuilder => (value) => {
+module.exports = curry((errorBuilder, value) => {
   const onError = () => errorBuilder(value);
 
   const validationChainCreator = maybeValue => (...validators) => {
@@ -52,4 +53,4 @@ module.exports = errorBuilder => (value) => {
     any: () => defaultReturnCreator(Maybe.of(value)),
   };
   return coercers;
-};
+});
