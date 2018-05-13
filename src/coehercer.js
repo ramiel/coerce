@@ -8,26 +8,29 @@ const safeString = safe(isString);
 
 
 export default function coehercer(errorBuilder) {
-  const validationChainCreator = maybeValue => (...validators) => {
-    const isValid = validators.reduce(
-      (res, validator) => res && maybeValue.map(validator).option(false),
-      true,
-    );
-    const result = isValid ? maybeValue : Maybe.Nothing();
-    return {
-      value: () => result.either(errorBuilder, x => x),
+  return (value) => {
+    const onError = () => errorBuilder(value);
+
+    const validationChainCreator = maybeValue => (...validators) => {
+      const isValid = validators.reduce(
+        (res, validator) => res && maybeValue.map(validator).option(false),
+        true,
+      );
+      const result = isValid ? maybeValue : Maybe.Nothing();
+      return {
+        value: () => result.either(onError, x => x),
+      };
     };
-  };
+    const defaultReturnCreator = v => ({
+      validate: validationChainCreator(v),
+      value: () => v.either(onError, x => x),
+    });
 
-  const defaultReturnCreator = v => ({
-    validate: validationChainCreator(v),
-    value: () => v.either(errorBuilder, x => x),
-  });
-
-  return {
-    toNumber: value => defaultReturnCreator(safeNumber(value * 1)),
-    toNumberStrict: value => defaultReturnCreator(safeNumber(value)),
-    toString: value => defaultReturnCreator(safeString(`${value}`)),
-    toStringStrict: value => defaultReturnCreator(safeString(value)),
+    return {
+      toNumber: () => defaultReturnCreator(safeNumber(value * 1)),
+      toNumberStrict: () => defaultReturnCreator(safeNumber(value)),
+      toString: () => defaultReturnCreator(safeString(`${value}`)),
+      toStringStrict: () => defaultReturnCreator(safeString(value)),
+    };
   };
 }
