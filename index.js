@@ -1,11 +1,13 @@
-const coherecerBuilder = require('./src/coehercer');
+const coercer = require('./src/coercer');
 const { moreThan, multipleOf } = require('./src/validators/numbers');
 
 
 const defaultErrorBuilder = value => new Error(`Value ${value} (${typeof value}) is not in the correct format`);
-const coehercer = coherecerBuilder(defaultErrorBuilder);
+const coerce = coercer(defaultErrorBuilder);
 
-console.log(coehercer('15')
+
+const coerce15 = coerce('15');
+console.log(coerce15
   .toNumber()
   .validate(
     moreThan(1),
@@ -13,21 +15,21 @@ console.log(coehercer('15')
   )
   .value());
 
-console.log(coehercer('Ciao T!')
-  .toString()
-  .validate(x => !!x)
-  .value());
-
-console.log(coehercer(50)
-  .toStringStrict()
-  .validate(x => !!x)
-  .value());
-
-console.log(coehercer('15')
+console.log(coerce15
   .toNumberStrict()
   .validate(
     moreThan(1),
     multipleOf(3),
   )
+  .value());
+
+console.log(coerce('Ciao T!')
+  .toString()
+  .validate(x => !!x)
+  .value());
+
+console.log(coerce(50)
+  .toStringStrict()
+  .validate(x => !!x)
   .value());
 
