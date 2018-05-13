@@ -2,10 +2,14 @@
   "name": "coehercer",
   "version": "0.1.0",
   "description": "Coeherce and validate your data",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run lint && npm run test:only",
+    "prepare": "npm run build"
   },
   "author": "Fabrizio Ruggeri",
   "license": "MIT",

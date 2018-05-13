@@ -1,5 +1,5 @@
-import coherecerBuilder from './src/coehercer';
-import { moreThan, multipleOf } from './src/validators/numbers';
+const coherecerBuilder = require('./build/bundle.cjs.js');
+const { moreThan, multipleOf } = require('./src/validators/numbers');
 
 
 const defaultErrorBuilder = value => new Error(`Value ${value} (${typeof value}) is not in the correct format`);
