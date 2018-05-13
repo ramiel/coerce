@@ -1,5 +1,5 @@
 {
-  "name": "coerce",
+  "name": "ramiel/coerce",
   "version": "0.1.0",
   "description": "Coeherce and validate your data",
   "main": "coercer.js",
