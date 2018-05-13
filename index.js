@@ -1,4 +1,4 @@
-const coherecerBuilder = require('./build/bundle.cjs.js');
+const coherecerBuilder = require('./src/coehercer');
 const { moreThan, multipleOf } = require('./src/validators/numbers');
 
 
