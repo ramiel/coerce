@@ -1,4 +1,7 @@
+const oneOf = require('./oneOf');
+const match = require('./match');
+
 module.exports = {
-  oneOf: (accept = []) => x => accept.indexOf(x) !== -1,
-  match: regexp => x => regexp.test(x),
+  oneOf,
+  match,
 };

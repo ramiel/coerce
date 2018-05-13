@@ -1,7 +1,13 @@
+const moreThan = require('./moreThan');
+const moreThanEqual = require('./moreThanEqual');
+const lessThan = require('./lessThan');
+const lessThanEqual = require('./lessThanEqual');
+const multipleOf = require('./multipleOf');
+
 module.exports = {
-  moreThan: v => x => x > v,
-  moreThanEqual: v => x => x >= v,
-  lessThan: v => x => x < v,
-  lessThanEqual: v => x => x <= v,
-  multipleOf: v => x => x % v === 0,
+  moreThan,
+  moreThanEqual,
+  lessThan,
+  lessThanEqual,
+  multipleOf,
 };

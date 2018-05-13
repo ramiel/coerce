@@ -39,7 +39,7 @@ module.exports = curry((errorBuilder, value) => {
     toFloat: (base = 10) => defaultReturnCreator(safeNumber(parseFloat(value, base))),
     toString: () => defaultReturnCreator(safeString(`${value}`)),
     toStringStrict: () => defaultReturnCreator(safeString(value)),
-    toBool: (trueValues = ['true', '1'], falseValues = ['false', '0', 'undefined', 'null']) => {
+    toBool: curry((trueValues = ['true', '1'], falseValues = ['false', '0', 'undefined', 'null']) => {
       const stringValue = coercers.toString().value();
       // eslint-disable-next-line no-nested-ternary
       const bool = trueValues.indexOf(stringValue) !== -1
@@ -48,7 +48,7 @@ module.exports = curry((errorBuilder, value) => {
           ? Maybe.of(false)
           : Maybe.Nothing();
       return defaultReturnCreator(bool);
-    },
+    }),
     toBoolStrict: () => defaultReturnCreator(safeBool(value)),
     any: () => defaultReturnCreator(Maybe.of(value)),
   };

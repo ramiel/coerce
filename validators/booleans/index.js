@@ -1,4 +1,7 @@
+const isTrue = require('./isTrue');
+const isFalse = require('./isFalse');
+
 module.exports = {
-  isTrue: x => x === true,
-  isFalse: x => x === false,
+  isTrue,
+  isFalse,
 };
