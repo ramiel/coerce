@@ -4,7 +4,8 @@
   "description": "Coeherce and validate your data",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "author": "Fabrizio Ruggeri",
   "license": "MIT",
@@ -14,6 +15,8 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0"
+    "eslint-plugin-import": "^2.11.0",
+    "rollup": "^0.58.2",
+    "rollup-plugin-local-resolve": "^1.0.7"
   }
 }

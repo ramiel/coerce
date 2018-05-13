@@ -1,22 +1,31 @@
-const coehercer = require('./src/coehercer');
-const validators = require('./src/validators/numbers');
+import coehercer from './src/coehercer';
+import { moreThan, multipleOf } from './src/validators/numbers';
 
 
-const defaultErrorBuilder = () => new Error('Value is not in the correct format');
-const numberCoehercer = coehercer(defaultErrorBuilder);
+const defaultErrorBuilder = value => new Error(`Value ${value} is not in the correct format`);
+const {
+  toNumber, toNumberStrict, toString, toStringStrict,
+} = coehercer(defaultErrorBuilder);
 
-console.log(numberCoehercer('15')
-  .toNumber()
+// console.log(toNumber('15')
+//   .validate(
+//     moreThan(1),
+//     multipleOf(3),
+//   )
+//   .value());
+
+// console.log(toString('Ciao T!')
+//   .validate(x => !!x)
+//   .value());
+
+// console.log(toStringStrict(50)
+//   .validate(x => !!x)
+//   .value());
+
+console.log(toNumberStrict('15')
   .validate(
-    validators.moreThan(1),
-    validators.multipleOf(3),
+    moreThan(1),
+    multipleOf(3),
   )
   .value());
 
-console.log(numberCoehercer('15')
-  .toNumberStrict()
-  .validate(
-    validators.moreThan(1),
-    validators.multipleOf(3),
-  )
-  .value());
