@@ -1,11 +1,11 @@
-import coehercer from './src/coehercer';
+import coherecerBuilder from './src/coehercer';
 import { moreThan, multipleOf } from './src/validators/numbers';
 
 
 const defaultErrorBuilder = value => new Error(`Value ${value} (${typeof value}) is not in the correct format`);
-const myCoehercer = coehercer(defaultErrorBuilder);
+const coehercer = coherecerBuilder(defaultErrorBuilder);
 
-console.log(myCoehercer('15')
+console.log(coehercer('15')
   .toNumber()
   .validate(
     moreThan(1),
@@ -13,17 +13,17 @@ console.log(myCoehercer('15')
   )
   .value());
 
-console.log(myCoehercer('Ciao T!')
+console.log(coehercer('Ciao T!')
   .toString()
   .validate(x => !!x)
   .value());
 
-console.log(myCoehercer(50)
+console.log(coehercer(50)
   .toStringStrict()
   .validate(x => !!x)
   .value());
 
-console.log(myCoehercer('15')
+console.log(coehercer('15')
   .toNumberStrict()
   .validate(
     moreThan(1),

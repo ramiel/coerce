@@ -43,9 +43,9 @@ function moreThan(v) { return x => x > v; }
 function multipleOf(v) { return x => x % v === 0; }
 
 const defaultErrorBuilder = value => new Error(`Value ${value} (${typeof value}) is not in the correct format`);
-const myCoehercer = coehercer(defaultErrorBuilder);
+const coehercer$1 = coehercer(defaultErrorBuilder);
 
-console.log(myCoehercer('15')
+console.log(coehercer$1('15')
   .toNumber()
   .validate(
     moreThan(1),
@@ -53,17 +53,17 @@ console.log(myCoehercer('15')
   )
   .value());
 
-console.log(myCoehercer('Ciao T!')
+console.log(coehercer$1('Ciao T!')
   .toString()
   .validate(x => !!x)
   .value());
 
-console.log(myCoehercer(50)
+console.log(coehercer$1(50)
   .toStringStrict()
   .validate(x => !!x)
   .value());
 
-console.log(myCoehercer('15')
+console.log(coehercer$1('15')
   .toNumberStrict()
   .validate(
     moreThan(1),
