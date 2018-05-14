@@ -9,6 +9,7 @@
   },
   "author": "Fabrizio Ruggeri",
   "license": "MIT",
+  "repository": "github:ramiel/coerce",
   "dependencies": {
     "crocks": "^0.9.3"
   },
