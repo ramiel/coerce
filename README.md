@@ -1,5 +1,7 @@
 # Coerce
 
+[![CircleCI](https://circleci.com/gh/ramiel/coerce.svg?style=svg)](https://circleci.com/gh/ramiel/coerce)
+
 Coerce is a functional library that let you transform an input value into a fixed type and run validations on it.
 
 This library aims to be as lean as possible so the minimal amount of code is run. If, for example, a validation fails, all the other validation functions are not run. More on this later.
