@@ -1,5 +1,5 @@
 const coercer = require('./coercer');
-const { moreThan, multipleOf } = require('./validators/numbers');
+const { moreThan, multipleOf, divisorOf } = require('./validators/numbers');
 const { match } = require('./validators/strings');
 const oneOf = require('./validators/strings/oneOf');
 const not = require('./helpers/not');
@@ -55,5 +55,10 @@ console.log(coerce('c')
 console.log(coerce('ciao')
   .toString()
   .validate(or(oneOf(['b']), match(/ciao/)))
+  .value());
+
+console.log(coerce(3)
+  .toNumber()
+  .validate(divisorOf(9))
   .value());
 

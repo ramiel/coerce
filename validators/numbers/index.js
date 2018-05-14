@@ -3,6 +3,7 @@ const moreThanEqual = require('./moreThanEqual');
 const lessThan = require('./lessThan');
 const lessThanEqual = require('./lessThanEqual');
 const multipleOf = require('./multipleOf');
+const divisorOf = require('./divisorOf');
 
 module.exports = {
   moreThan,
@@ -10,4 +11,5 @@ module.exports = {
   lessThan,
   lessThanEqual,
   multipleOf,
+  divisorOf,
 };
