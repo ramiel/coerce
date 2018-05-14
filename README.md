@@ -8,14 +8,14 @@ This library aims to be as lean as possible so the minimal amount of code is run
 
 ## Install
 
-`npm install --save coerce`
+`npm install --save @ramielcreations/coerce`
 
 ## Transform into type - coercing
 
 Usually when you receive a value from an http request, this value is a string. Your library expects a number and so you want to cast your data before using it. But casting values in javascript can lead to some weird situation. This may be one case where you want to use a coercer.
 
 ```js
-const coerce = require('coerce');
+const coerce = require('@ramielcreations/coerce');
 
 const onError = () => new Error('Invalid value');
 const myCoercer = coerce(onError);
@@ -41,7 +41,7 @@ When you coerce a value, the library returns you an object with two methods: `va
 A validator is simply a function that returns a boolean and some basic validators are provided.
 
 ```js
-const coerce = require('coerce');
+const coerce = require('@ramielcreations/coerce');
 const lessThan = require('coerce/validators/numbers/lessThan');
 
 const onError = () => new Error('Invalid value');
