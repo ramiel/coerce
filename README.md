@@ -42,7 +42,7 @@ A validator is simply a function that returns a boolean and some basic validator
 
 ```js
 const coerce = require('@ramielcreations/coerce');
-const lessThan = require('coerce/validators/numbers/lessThan');
+const lessThan = require('@ramielcreations/coerce/validators/numbers/lessThan');
 
 const onError = () => new Error('Invalid value');
 const myCoercer = coerce(onError);
